@@ -43,6 +43,7 @@ Tareas: Mantenimiento datos nube, generacion modelo de datos para analistas y ci
 3. DataWarehouse and ETL
 
 - DataWarehouse:
+    - Solamente datos estructurados en SQl
     - DB que almacena mucha info para ser analizada
     - Relacional, rapida consulta SQL. Estructura planificada
     - Datos estructurados y muchos tipos de diferentes fuentes.
@@ -52,7 +53,25 @@ Tareas: Mantenimiento datos nube, generacion modelo de datos para analistas y ci
 
 
 - Data Lake
+    - Sistemas distrubidos que almacenan datos estructurados, semisestructurados (json) y no estructurados (texto, video)
     
+- ETL
+    - Extraer: Tomar info de todas las bases de datos
+    - Cargar: Transferirlos a un sistema unico
+        - Apache Flink, Apache Bean, Redis, Kafka
+    - Trasformar: Normalizarlos, limpiearlos y prepararlos para analisis. Modificando datos nulos, campos vacios, datos incoherentes y duplicados, tipo incorrecto.
+        - Se transofrman con pipelines (procesos ornedaos y rutinas) , son idepmpotencia (generar el mismo resultado) cada cierto tiempo
+        - Usa Engines: Modificar, anadir y limpiar: Apache  Spark, Apache Hadoop
+
+    - Oquestacion de procesos:
+        Apache Airflow, Azure data factory
+
+ - Tipos de datos a ser trasnformados:
+    - Batch: Asincronas. Ej: bases de datos que llegan 1 vez al dia por ejemplo
+    - Tiempo real: Casi sincrona. Ej: Sensores
+
+
+ 
 
 
 4. Normalization, facts, dimension and types of esquems, 

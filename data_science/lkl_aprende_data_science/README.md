@@ -11,24 +11,27 @@
 
 - ETL:  Extraccion, trasnformacion y carga al warehouse para analisis 
 
-- Hadoop: 
-    Remplaza warehouse, subir ETL a cluster Hadoop, ahorrarse nube. Tiene NoSQL, llamada HBase
-    Limitaciones de SQL que resuelve Hadoop: No flexibles, necesitan esquemas (conocer formato, organizarlos en tablos y organizar relaciones)
-    NoSQL : No esquemas, util para clusters, codigo abierto, no noramlizar, apta para clusteres.
-    Los registros se guardan en agrergados (con toda la info), puedo sincronizarlos con clusteres.
 
+- Clasificacion Big Data
+    - Volumen
+        - Petabytes y Exabytes. Normales son kilobytes, megabytes, gigabytes, terabytes.
+    - Variedad
+        - Estructurados: Inflexibles, modelo de datos para definir campos individuales (exto, numero, fechas..) Bases relacionales
+        - Semiestructurados: Mismo modelo, diferentes esquemas. Estructura depende de la fuente, la empresa por ejemplo. Formatos son XML, JSON para web
+        - No structurados: Fotos, audios, ... Vision de 360 del cliente (conocerlos, enviarle promociones, formular preguntas adicionales)
+    - Veraz: Estructurados, no estructurados y semiestructudaos
+    - Velocidad:  Generada high speed
 
-Volumen: Petabytes y Exabytes. Normales son kilobytes, megabytes, gigabytes, terabytes.
-Veraces: Me ayuda a resolver mi problema
-Variedad: Stocks market is not
-Velocidad:
-
-
-# Tipos de datos
-
-- Estructurados: Inflexibles, modelo de datos para definir campos individuales (exto, numero, fechas..) Bases relacionales
-- Semiestructurados: Mismo modelo, diferentes esquemas. Estructura depende de la fuente, la empresa por ejemplo. Formatos son XML, JSON para web
-- No structurados: Fotos, audios, ... Vision de 360 del cliente (conocerlos, enviarle promociones, formular preguntas adicionales)
+- Frameowrks to store and process
+    - Hadoop: 
+        - Usa DIstributed File Systems (HDFS). Varias machines
+        - Map reduce. Paralelle process
+        - Remplaza warehouse, subir ETL a cluster Hadoop, ahorrarse nube. Tiene NoSQL, llamada HBase
+        - Limitaciones de SQL que resuelve Hadoop: No flexibles, necesitan esquemas (conocer formato, organizarlos en tablos y organizar relaciones)
+        - NoSQL : No esquemas, util para clusters, codigo abierto, no noramlizar, apta para clusteres.
+        - Los registros se guardan en agrergados (con toda la info), puedo sincronizarlos con clusteres.
+    - Cassandra
+    - Spark
 
 
 # Estadistica
