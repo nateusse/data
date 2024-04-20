@@ -95,15 +95,16 @@
 2. bases de datos y modelo relacional
     - Modelado de datos:
         - Modelo relacional: Entidades y relaciones entrer si. atributos y claves. Ej: Draw.io
-        ![alt text](image-1.png)
+         Modelos se convierten en tablas y Atributos son columnas
+        ![alt text](data_analytics\coderhouse\assests\nivelacion\image-1.png)
         - Modelo entidad - relacion: Relaciones entre entidades (rectangulos) con atributos en obalos,  relaciones rombos
         ![alt text](image.png)
-        Modelos se convierten en tablas y Atributos son columnas
+       
         - No relacional: No relaciones entrer si, no estructura definida
         - Jerarquico: Nodo principal con nodos hijos
-        ![alt text](image-2.png)
+        ![alt text](data_analytics\coderhouse\assests\nivelacion\image-2.png)
         - Red: conexcion por enlaces
-        ![alt text](image-3.png)
+        ![alt text](data_analytics\coderhouse\assests\nivelacion\image-3.png)
 
     - Escoger DB relacional VS No relacional
         -  No relacional: Operaciones dinamicas, no puedo mapear a priori, agregan nuevos atributos.
@@ -111,8 +112,12 @@
     
     - Modelar utilidad :
         - Estructurar datos
-        - Restrcciones de integridad
-        - 
+        - Restrcciones de integridad: Mismo tipo
+        - Manipulacion: Usar datos
+
+    - Armados:
+        - Transaccional: Generacion, INSERT. No redundante, simple
+        - Dimensional: Generar analisis, reportes. Redundancia no es mala porque es para consulta. Se usan hechos que se generarn en tablas satelities
 
 3. Lenguaje SQL: Sublenguajes DDL y DML
 
@@ -121,7 +126,6 @@
 5. Sentencias JOIN y UNION
 
 6. Herramientas de visualizacion
-
 
 7. Introduccion Power BI
 
