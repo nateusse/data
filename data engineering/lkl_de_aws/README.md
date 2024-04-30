@@ -38,4 +38,36 @@
         - 400 kylabites (KB) max per row, infunidad de rows, S3 5 terabyeste
         - RCU (read capacity unit) and WCU (write capacity unit) pueden ser calculados en capacity calculator
 
-- **S3**
+### Ingestion
+- Insert multiples type of data, batch, real time, data bases..
+- COnsiderations
+    - Format. H ow data is comming
+    - Type of data
+    - Data frecuency 
+    - Optimal size (16 and 256 MB), compact small KB into bigger ize
+    - File format. Oarquet and ORC 
+    - Partitioning
+    - Ingestion parttern (right tool)
+- Hibrid 
+   - Usualmente clientes quieren hibrid para no rehacer toda la arquitectura (on premise mas cloud).
+   - Manteer the set up, cloud and on-premise. Talk to each other
+   - Opciones:
+        - Data connect (primavete connection in my on-premise)
+        - storage gateaway (Yo instalo, para store y comunication with cloud)
+- Migrar: 
+    - Snowmobile shipped to yoru location put in this device and ship to amazona gain. 
+    - Data migration service (DMS)
+    - Taad sink
+- Real time ingestion or batch
+    - Real time data: Kinesis (Kinesis strerams, Firehose, kafka)
+        - Kinesis:
+            - Connect, process, analyze types of data streams (event logs, social media feeds, clickstram data, sensors,..)
+            - Control by IAM to access
+            - AWS KMS (data at rest protection at S3 and redshift)
+            - roteccion in transit: TLS (transport layer security protocol for data in trasnti)
+            - Services:
+                - Amazon kinesis video streams (audio, videos)
+                - Amazon kinesis data streams (Base64-eoncded data,clicks, logs, feeds, trasnactions, in game , IoT sentos)
+                - Amazon kinesis data firehose
+                - Amazon kinesis data analytics
+    -  Batch: AWS Glue jobs, or third-sparties such Sparks

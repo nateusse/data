@@ -139,4 +139,19 @@ Tareas: Mantenimiento datos nube, generacion modelo de datos para analistas y ci
                     - tres tipos , nos interesa solo alta eprformance comparitiendo memoria y espacio en disco.
                     - Nodos ejecutan subtareas, con un nodo que recopila todos y devuelve info al usuario. 
                 - Procesamiento masivo en paralelo (MPP)
-                    - 
+                    -
+5. Distribution styles, bases de datos columnares y query planning
+
+6. Pandas y dataframes
+
+7. Dataframes con SQL alchemy and Psycopg
+
+8. Cibersecurity
+
+9. Docker
+
+10. Apache Airflow and DAGs
+
+11. Semana 11 - SMTP
+
+12. Data Streaming
