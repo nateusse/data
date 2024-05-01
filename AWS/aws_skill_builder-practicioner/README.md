@@ -1,5 +1,21 @@
 # CLOUD PRACTITIONER ESSENTIALS
 
+**Certifications**
+- Foundational  
+    - Cloud practicioner $100
+- Associate
+    - Data Engineer $150
+    - Developer $150
+    - Solution Architect $150
+    - SysOps administrator $150
+- Professional
+    - DevOps Engineer $300
+    - Solution architect $300
+- Specialty
+    - Advanced networking $300
+    - Machine learning $300
+    - Security $300
+
 ### Module 1 -  Intro AWS
 - **Client**: Browser, desktop app
 - **Server**: Service, such EC2 (Amazon Elastic COmpute Cloud)
