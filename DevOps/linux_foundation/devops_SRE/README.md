@@ -125,6 +125,17 @@
     - 2020 New alternatives, como Podman
 
 **Docker**
+- Comands:
+    - install: curl -fsSL https://get.docker.com/ | sh
+    - status: sudo systemctl status docker
+    - add user: sudo usermod -aG docker $USER
+    - verify: docker ps
+    - hello world: sudo docker container run hello-world
+    - list containers: sudo docker container ls
+    - help : sudo docker container ls –help
+    - interact container: sudo docker container run -it ubuntu /bin/bash
+    - Uninstal : student@ubuntu:~$ sudo apt-get purge docker-ce docker-ce-cli containerd.io
+docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
 - *Docker engine*: Muchos modulos que ayudan el ciclo de vida
     - Containerd:
     - runC:
@@ -161,6 +172,35 @@
 - Security
     - Running containers in a daemonless and often rootless mode inherently reduces security risks
     - SELinux, seccomp, and other security features natively provided by the Linux kernel.
+
+- orchestracion
+    - Manejar muchos containers.
+    - Controlar deploy, scale, health monitoring, netowrking
+    - Mejorar recursos: coran solo cuando need it
+    - Deploy multi-cloud providers
+
+**Kubernetes K8**
+- Utilidades:
+    - Deployment across a cluster of nodes.
+    - Scaling:automatically scales applications up or down based on demand. Buenos recursos
+    - Load Balancing: Kubernetes evenly distributes traffic across different instances of your application, ensuring high availability and responsiveness.
+    - Service Discovery: It enables applications to discover and communicate with each other, regardless of their location within the cluster.
+    - Health Monitoring: Kubernetes monitors the health of your applications and automatically restarts them if they fail.
+    - Security: Kubernetes provides a robust security framework for managing access control and protecting your applications.
+    - Self-healing: Kubernetes restarts containers that fail, replaces containers, kills containers that don't respond to your user-defined health check, and doesn't advertise them to clients until they are ready to serve.
+    - Horizontal scaling: Scale your application up and down with a simple command, with a UI, or automatically based on CPU usage.
+
+- COmponents:
+    - Control Plane Node
+    - Worker Node (Minion)
+    - POd
+    - Replica set
+    - Depployment
+    - Service
+    - VOlume
+    - ConfigMap and Secret
+    - Namesapce
+    - Kubernetes Dashboard
 
 ## Chapter 5. Infrastructure as a Code (IaC)
 
