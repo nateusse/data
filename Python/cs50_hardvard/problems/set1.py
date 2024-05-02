@@ -27,10 +27,61 @@ usuario = input("Greeting: ")
 print(bank(usuario))
 
 
-"""
-# File extensions
 
+# File extensions
+def get_media_type():
+    filename = input("Enter the name of a file: ")
+    extension = filename.strip().split('.')[-1].lower() #divid con punto
+    if extension == 'png':
+        return 'image/png'
+    elif extension == 'jpg' or extension == 'jpeg':
+        return 'image/jpeg'
+    elif extension == 'gif':
+        return 'image/gif'
+    elif extension == 'pdf':
+        return 'application/pdf'
+    elif extension == 'txt':
+        return 'text/plain'
+    elif extension == 'zip':
+        return 'application/zip'
+    else:
+        return 'application/octet-stream'
+
+print(get_media_type())
 
 # Math interpreter
+user = input("Expression: ").split()
+x, symbol, y = user
+x = float(x)
+y = float(y)
+if symbol == "+" :
+   print ( x + y)
+elif symbol == "/" :
+   print ( x / y)
+elif symbol == "-" :
+   print ( x - y)
+elif symbol == "*" :
+   print ( x * y)
+
+
 
 # Meal time
+def main():
+    time = input("Wht time is it?: ")
+    time = convert(time)
+
+    if 7 <= time <= 8:
+        print("breakfast time")
+    elif 12 <= time <= 13:
+        print("lunch time")
+    elif 18 <= time <= 19:
+        print("dinner time")
+
+def convert(time):
+    hours, minutes = map(int, time.split(':'))  # Split the time into hours and minutes
+    return hours + minutes / 60.0  # Convert to hours as a float
+
+if __name__ == "__main__":
+    main()
+
+    """
