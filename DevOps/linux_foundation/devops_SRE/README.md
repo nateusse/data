@@ -158,11 +158,32 @@
     - Uninstal : student@ubuntu:~$ sudo apt-get purge docker-ce docker-ce-cli containerd.io
 docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
 
+- Arquitectura imagenes
+- son inmutables, read only, crean read-write container
+- se apilan por capas
+- hostname / repository : tag Ej: docker.oi / ubuntu:18.04
+
+- Layers:
+    - FROM: (alpine:3.10, centos:latest)
+    - app: postgress:8,4
+
+- dockerfile
+    - FROM os version
+    - MAINTERNER nateusse
+    - RUN para indicarle a la imagen que ocnstruir Ej: yum -y install httpd
+    - WORKDIR ; once installed my working directory would be var/www/data
+    - COPY mi codigo meterlo en contenerdor, insider workirectory EJ: COPY data/ var/www/data
+    - CMD: tell daemon to run my code inside container
+
+- Containers
+- runable isntance of image
+- usa volumenes and bins para data aun cuando la detuve
+
 - PARTES DOCKER
-    - *Docker engine*: Muchos modulos que ayudan el ciclo de vida
-        - Containerd:
-        - runC:
-        - libcontainer: 
+    - namespace:Linux kernel feature that isolates and virtualizes system resources.
+    - serverless: cloud tech para no depender de servers
+    - LXC:  LinuX Containers is a OS-level virtualization technology that allows creation and running of multiple isolated Linux virtual environments (VE) on a single control host. 
+    - *Docker daemon (dockerd)*: creates and manages Docker objects, such as images, containers, networks, and volumes. 
         - *Docker client* : CLI para inetractuar con DOcker daemon (engine)
         - *Docker images*: Lightweight, standalone, and executable packages that include the application and all its dependencies. Vienen de isntrucciones en el dockerfile
         - *Docker registry*: Docker images are stored in registries, which are repositories for sharing and distributing container images. Docker Hub is the default public registry; users can also set up private registries for internal use. Images can be pulled from registries when needed for running containers.
@@ -293,7 +314,11 @@ docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
             - Distributed tracing: Microservices or distribued sistems, interacciones entre servicios
             - Real user monitoring (RUM): user experience
             - Synthetic monitoring  Baseline measurment vs real user data
-
+- Tools:
+    - Data collection: OpenTelemetry, Prometheus, and ELK Stack , otras : Datadog Agent, Fluentd, and Telegraf.
+    - Logs: Elasticsearch, Logstash, and Graylog.
+    - Metrics: Prometheus, InfluxDB, and TimescaleDB
+    - Trace: Jaeger, Zipkin, and Honeycomb.
 ## Chapter 8. Site Reliability Engineering (SRE)
 - Large-sacle reliable services.
 - Medir reability:
