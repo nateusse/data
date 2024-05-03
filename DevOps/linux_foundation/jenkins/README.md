@@ -34,4 +34,12 @@
         - Paid:
             - AWS codepipeline, Circle CI, Azure pipelines, github actions, travis CI, google cloud build ..
 
+- Tools for deployment pipeline
+    - Test: Selenium, xUnit (C#), pytest, jest...
+    - VSC: Git
+    - CD: Jenkins, travis, CricleCL
+    - BInary repository: Artifactory
+    - Management tools : Ansible
+
+- Instalacion: Containers, windows, standalone WAR, linux package maangment (RPM, DEB,..)
 
