@@ -18,6 +18,13 @@
 
 ## Chapter 3: Intro to Cloud
 - **Que es cloud**: Data centers accesible via internet
+
+- **GCP create compute engine**
+    1. Entrar GCP console
+    2. Create project
+    3. Compute Engine o create VM
+    4. Configurate VM (name, region or zone, machine type for amount CPU, boot disk), firewall(network HTTP), networking (externals IP adresses, ..)security(SSH key) 
+
 - **Advantages**
     - Escalar based in demand
     - Insfrastucture as a Code (IaC). Recursos inmediatios para new features
@@ -39,7 +46,7 @@
         - No controlo undelying infraestructure.
         - EJ: Mi sitio de cnstruccion, me dan recursos (gas, agua,..) pero debo adminsitrarlos y construir casa
     - Software as a service (SaaS)
-        - Todo (insfrestructure, end product) lo maneja cloud provider
+        - Todo (insfrestructure, end product) lo maneja cloud provider. Ej Dorpbox, email, ni la app, solo uso
     - FUnction as a Service
         - No manejo nada, pero no me comprometo a firmar contratos
 - **Cloud deployment models**
@@ -109,6 +116,7 @@
     - Pesadas, lento inicio
     - Ideales para codigo legacy y apra apps que encesitan alta isolation
 - *Container*
+    - Es stanar unit, box of software que contiene o encapsula lo que mi app encesita apra correr (build como libraries, ship, run como runime einviroment) 
     - SImplifica desarrollo, escalabilidad y deploy de una app
     - Hold everything for the app to run (code, libraries, runtime environment, and system configuration)
     - Share host OS, lightweight
@@ -124,6 +132,19 @@
     - 2014 COntainer orquestration Kubernetes
     - 2020 New alternatives, como Podman
 
+- Container technologies
+    - podman
+    - Containerd
+    - BuildKit
+    - Kata containers
+    - CRI-O   
+    - KuberVirt
+    - Firecracker
+    - Open Containe Initiative (OCI)
+    - Kpack
+    - Gvisor
+    - 
+
 **Docker**
 - Comands:
     - install: curl -fsSL https://get.docker.com/ | sh
@@ -136,16 +157,20 @@
     - interact container: sudo docker container run -it ubuntu /bin/bash
     - Uninstal : student@ubuntu:~$ sudo apt-get purge docker-ce docker-ce-cli containerd.io
 docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
-- *Docker engine*: Muchos modulos que ayudan el ciclo de vida
-    - Containerd:
-    - runC:
-    - libcontainer: 
-- *Docker client* : CLI para inetractuar con DOcker daemon (engine)
-- *Docker images*: Lightweight, standalone, and executable packages that include the application and all its dependencies. Vienen de isntrucciones en el dockerfile
-- *Docker registry*: Docker images are stored in registries, which are repositories for sharing and distributing container images. Docker Hub is the default public registry; users can also set up private registries for internal use. Images can be pulled from registries when needed for running containers.
-- *Docker compose*: Users can describe the services, networks, and volumes in a docker-compose.yml file, making it easy to define complex applications with multiple components.
-- *Docker swarm*: users can create and manage a swarm of Docker nodes, turning them into a single virtual Docker host. Swarm enables the deployment and scaling of services across multiple containers.
-- *Networking and Storage Drivers*: COmunicaicon entre contenedores 
+
+- PARTES DOCKER
+    - *Docker engine*: Muchos modulos que ayudan el ciclo de vida
+        - Containerd:
+        - runC:
+        - libcontainer: 
+        - *Docker client* : CLI para inetractuar con DOcker daemon (engine)
+        - *Docker images*: Lightweight, standalone, and executable packages that include the application and all its dependencies. Vienen de isntrucciones en el dockerfile
+        - *Docker registry*: Docker images are stored in registries, which are repositories for sharing and distributing container images. Docker Hub is the default public registry; users can also set up private registries for internal use. Images can be pulled from registries when needed for running containers.
+        - *Docker compose*:
+            - docker-compose.yml
+            - Users can describe the services, networks, and volumes in a docker-compose.yml file, making it easy to define complex applications with multiple components.
+        - *Docker swarm*: users can create and manage a swarm of Docker nodes, turning them into a single virtual Docker host. Swarm enables the deployment and scaling of services across multiple containers.
+        - *Networking and Storage Drivers*: COmunicaicon entre contenedores 
 
 **Podman (Pod Manager)**
 - Open source manajador de containers
@@ -153,16 +178,13 @@ docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
 - Root and Rootless Modes 
     - Root Mode: Podman can run as root, similar to traditional Docker. This mode provides full access to all features and functionality of the system.
     - Rootless Mode: One of the significant features of Podman is its ability to run containers without root privileges. This enhances security as it reduces the risk of privilege escalation attacks.
-
 - Use of Fork/Exec Model
     - A container forks itself and then execs the runtime (like runc or crun). 
     - Each container is its process or set of processes on the host, managed directly by the kernel and not by a long-running daemon process.
-
 - Compatibility with Docker
     - Compatible Command line (CLI) syntax. making it easy for users to transition from Docker to Podman. 
 - Pod managment
     - Alnieado con Kubernetes, Podman can also manage pods, which are groups of one or more containers sharing the same network, IPC, and PID namespaces
-    -
 - Image managment
     - same image format as Docker, meaning it can pull and use images from any container registry that Docker can
     - same image/store format as Docker.
@@ -180,6 +202,7 @@ docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
     - Deploy multi-cloud providers
 
 **Kubernetes K8**
+- Open source paltaform for automating deploy , scaling and magamen conteneirized apps.
 - Utilidades:
     - Deployment across a cluster of nodes.
     - Scaling:automatically scales applications up or down based on demand. Buenos recursos
@@ -203,9 +226,101 @@ docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
     - Kubernetes Dashboard
 
 ## Chapter 5. Infrastructure as a Code (IaC)
+- IaC: Describe and provision infrastructure elements through machine-readable script files
+- Ventajas:
+    - Configurar infrestructura con programming languages
+    - Verion control infrastructure code, revisado y testeado
+    - Facilita escalada, updates and teardwn
+    - redce error manual
+- Tools : Terraform , Azure Resource Manager
 
+- Cateogiras
+    - Declarative IaC tools:
+        - TErraform, Pulumi, SaltStack
+        - Declarar el deasado estado de la infraestructura (que quiero)
+    - Configuration
+        - COnfigurar y mantener apps en la infraestructura
+        - Ansible, Chef, Puppet
+    - Container orchestration
+        -  Automatiza managment, deploy y escaladas de apps en containers
+        - Kubernetes, Nomad, CloudHedge
+    - CLoud native
+        - Azure resource manager (ARM)
+        - AWS cloudformation (JSON, YALM)
+- Features
+    - Declarative configuracion (que quiero)
+    - Idempotent operations (misma configuraion muchas veces, mismo resultado)
+    - Version control integration
+    - Dependency managment
+    - Parallel execution (muchas operaciones simultaneas)
 ## Chapter 6. Continuous Integration/Continuous Delivery (CI/CD)
+- CI: Merge code reguarlamente from devs to central repo
+    - integracion (codigo, automatic testing, crear artifacts) con rapido feedback
+- CD" Automatiza cambios en produccion
+- Ventajas:
+    - Codigo de calidad, fast deployment , velocidad, deteccion temprana de bugs, incrementa comunicacion
+    - Auto testing, deploy to stagin, release to production or not puede ser manual para salir rapidoa  emrcado, rapido feedback y monitoreo
+
+- GitOps
+    - Deployment methodology (git sogle source of true)
+    - Tools: Argo CD, Flux, Tekton, Jenkins X
+
+- Relsease strategies
+    - Rolling relsease (no version, inmidiate resleas updates and features Ej: necesito cambios rapido, )
+    - Feature tooglesor Flags  (features in conditionals para activarlos o no, gradual, A/B testing y experimentar EJ; New feature subset users)
+    - Blue - green deployment ( 2 ambientes, prudcution and other testing, se cambian, quick rollback, inmediato, no paro)
+    - canary: (New version to subset users)
+    - Phased (staged) rollout (Nuevo fetaure subset users, monitoreo, control)
 
 ## Chapter 7. Intro to Observability 
+- Observabilidad: Entender estado interno de un sistema basado en external outputs
+- Utilidad: Los sistemas son complejos, deteccion y resoluciond e errores rapida, mejora user experience diadnistico problemas eficiente, 
+- Pilares:
+    - Logs: Digital records del sistema con el tiempo, detallados
+        - Application logs: Eventos app (user actions, sys errors, trasnacitions)
+        - System logs: Operative system para diagnistico hardware, no app pero la afecta (calls, schedlue tasks, messages from kernel)
+        - Audit logs: Security events
+    - metrics: High-level, views del comportamiento del sistema y su performance
+        -  Util apra benchmarks, trends, alerts
+        - System: Insfrestructura (CPU, memory, disk I/O, network..)
+        - Application metrics: Software layer (app performance, latencia, error rates, vlomunes)
+        - Bussiness metrics: (active users, conversion rates, revenue metrics..)
+    - Traces:
+        - Camno de inicio a final, sistem behavior, user experience.
+        - Spans: Single operation
+        - Context: Identidad across procesos , asociacion correcta
+        - Tipos:
+            - Distributed tracing: Microservices or distribued sistems, interacciones entre servicios
+            - Real user monitoring (RUM): user experience
+            - Synthetic monitoring  Baseline measurment vs real user data
 
 ## Chapter 8. Site Reliability Engineering (SRE)
+- Large-sacle reliable services.
+- Medir reability:
+    - SLI (service level indicators): Monitore, alertas, regular analysis
+    - SLOs (service level objectives): Nivel aceptable de confianza entre el engocio y el cliente
+    - SLA (service elvel agreements)
+- caracteristicas:
+    - Focus reliability: Servicios confiables  y disponibles SLo SLO
+    - Error budgets: Cuantifica downtime y errores en un tiempo eespecifico.
+    - Measurable objectives: SLI, aspectos importantes para los clientes (latencia, disponiblidad, error, cuantificable con linea de comapracion)
+    - Blame-free post mortems:no culpables
+    - Automation:
+
+- SRE vs DevOps
+    - Enfoque en reliability, monitore  DeVosp mas cultural durante todo el ciclo de desarrollo
+
+- Principios
+    - Riesgo aceptable
+    - SLO (target levels of reliability)
+    - Simplcidad
+    - Automatizacion
+    - Planeacion
+    - Blameless culture
+    -
+
+- Building SRE 
+    - Empeiza pequeno e iterante, con emtricas, monitorea.
+    - Contrata profesionales
+    - Usa tools para monitore Prometheus, grafana, ELK Stack, para incidentes, PagerDuty, VictoOps, OpsGenie
+    - No culpa

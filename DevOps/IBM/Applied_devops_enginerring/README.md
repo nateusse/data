@@ -15,7 +15,13 @@
         - Apps que encesitan high security
         - Monolitics
         - Using rich GUI features
-        -
+    - COmponentes:
+        - Namesapces: Isolted worksapce called containers
+        - Creates se og conitainers and each aspect runs in a spearate namespace
+    - Steps create Docker caontainer
+        1. Create dockerfiles
+        2. Dockerile crea imagen
+        Container image to create running container
 
 
 ## Aplication development using serverless and microservices
