@@ -43,4 +43,6 @@
             - VIene con internet gateway(IGW), security group(SG) or NACL
             - Subnets has public IPv4 address
 
-        - Custum VPC: Many per region
+### EC2
+- provides access to VM knows as intances
+- private services, so private zone by default
